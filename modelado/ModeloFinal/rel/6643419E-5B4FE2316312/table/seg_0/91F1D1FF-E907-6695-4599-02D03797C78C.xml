@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="91F1D1FF-E907-6695-4599-02D03797C78C" name="cli_mecha">
+<createdBy>usuario</createdBy>
+<createdTime>2022-09-07 23:08:49 UTC</createdTime>
+<ownerDesignName>ModeloFinal</ownerDesignName>
+<importedID>EFE16F7B-DE8D-C10E-C2BA-05AC7E4DE2E9</importedID>
+<ordsAlias>table_33</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_cli_mecha" id="B06771C6-E42F-21A3-714D-68623E6797B1">
+<createdBy>usuario</createdBy>
+<createdTime>2022-09-07 23:08:49 UTC</createdTime>
+<ownerDesignName>ModeloFinal</ownerDesignName>
+<importedID>73977270-6967-1F57-DCB6-3E198D81376F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cliente_cedula" id="F0A99F27-B0EE-45CF-0229-D74C4EE02900">
+<createdBy>usuario</createdBy>
+<createdTime>2022-09-07 23:08:49 UTC</createdTime>
+<ownerDesignName>ModeloFinal</ownerDesignName>
+<importedID>3DEEE7BB-3225-93D8-601E-60C8C77083CF</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="merchandising _id_merchandising " id="624B24EC-D962-5E3A-D574-E9F9CE178FF6">
+<createdBy>usuario</createdBy>
+<createdTime>2022-09-07 23:08:49 UTC</createdTime>
+<ownerDesignName>ModeloFinal</ownerDesignName>
+<importedID>FDCDBE4A-4AE9-7819-AFA1-AC000071D0E2</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="70DD13E5-8A83-6447-8271-BA6486E30F57" referredColumn="7485B825-9BB5-57FF-0E33-99F40BC3A6A9"/>
+</associations>
+</Column>
+<Column name="factura_id_factura" id="2866035B-317B-0988-0672-F48C32DC4D74">
+<createdBy>usuario</createdBy>
+<createdTime>2022-09-07 23:26:16 UTC</createdTime>
+<ownerDesignName>ModeloFinal</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F41A8464-DA2E-16F4-B8FE-60DD253A822D" referredColumn="3FACC880-F56A-1E57-BAC7-61E56FD5D659"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2B611EF1-DF79-0A7C-995E-D81DFCF4F3C9" name="cli_mecha_merchandising _FK">
+<createdBy>usuario</createdBy>
+<createdTime>2022-09-07 23:08:49 UTC</createdTime>
+<ownerDesignName>ModeloFinal</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="624B24EC-D962-5E3A-D574-E9F9CE178FF6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CFE790B6-F3D8-F21E-74AB-278DABB7AC88" name="cli_mecha_factura_FK">
+<createdBy>usuario</createdBy>
+<createdTime>2022-09-07 23:26:16 UTC</createdTime>
+<ownerDesignName>ModeloFinal</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2866035B-317B-0988-0672-F48C32DC4D74"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
