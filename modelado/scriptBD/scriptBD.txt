@@ -1,0 +1,291 @@
+-- Generado por Oracle SQL Developer Data Modeler 4.1.3.901
+--   en:        2022-09-30 13:40:52 COT
+--   sitio:      Oracle Database 11g
+--   tipo:      Oracle Database 11g
+
+
+
+
+CREATE TABLE Cliente
+  (
+    cedula             INTEGER NOT NULL ,
+    nombre_completo    VARCHAR2 (60) NOT NULL ,
+    email              VARCHAR2 (50) ,
+    img_perfil         VARCHAR2 (250) ,
+    contraseña         VARCHAR2 (50) NOT NULL ,
+    ciudad_id_ciudad   INTEGER NOT NULL ,
+    tarjeta_id_tarjeta INTEGER NOT NULL
+  ) ;
+ALTER TABLE Cliente ADD CONSTRAINT Cliente_PK PRIMARY KEY ( cedula ) ;
+
+
+CREATE TABLE Telefono
+  (
+    id_telefono    INTEGER NOT NULL ,
+    numero         INTEGER NOT NULL ,
+    tipo           VARCHAR2 (30) ,
+    cliente_cedula INTEGER NOT NULL
+  ) ;
+ALTER TABLE Telefono ADD CONSTRAINT Telefono_PK PRIMARY KEY ( id_telefono ) ;
+
+
+CREATE TABLE admin_teatr
+  (
+    id_admin_teatro INTEGER NOT NULL ,
+    email           VARCHAR2 (100) ,
+    contra          INTEGER
+  ) ;
+ALTER TABLE admin_teatr ADD CONSTRAINT admin_teatr_PK PRIMARY KEY ( id_admin_teatro ) ;
+
+
+CREATE TABLE administrador
+  (
+    id_admin INTEGER NOT NULL ,
+    email    VARCHAR2 (100) ,
+    contra   INTEGER
+  ) ;
+ALTER TABLE administrador ADD CONSTRAINT administrador_PK PRIMARY KEY ( id_admin ) ;
+
+
+CREATE TABLE ciudad
+  (
+    id_ciudad                    INTEGER NOT NULL ,
+    nombre                       VARCHAR2 (50) ,
+    departamento_id_departamento INTEGER NOT NULL
+  ) ;
+ALTER TABLE ciudad ADD CONSTRAINT ciudad_PK PRIMARY KEY ( id_ciudad ) ;
+
+
+CREATE TABLE cli_mecha
+  (
+    id_cli_mecha        INTEGER ,
+    cliente_cedula      INTEGER NOT NULL ,
+    "mercha _id_mercha" INTEGER NOT NULL ,
+    factura_id_factura  INTEGER NOT NULL
+  ) ;
+
+
+CREATE TABLE confi_cli
+  (
+    id_confi_cli             INTEGER NOT NULL ,
+    cliente_cedula           INTEGER NOT NULL ,
+    confiteria_id_confiteria INTEGER NOT NULL ,
+    factura_id_factura       INTEGER NOT NULL ,
+    precio                   INTEGER NOT NULL
+  ) ;
+ALTER TABLE confi_cli ADD CONSTRAINT confiteria_cliente_PK PRIMARY KEY ( id_confi_cli ) ;
+
+
+CREATE TABLE confiteria
+  (
+    id_confiteria INTEGER NOT NULL ,
+    nombre        VARCHAR2 (250) ,
+    precio        INTEGER ,
+    img           VARCHAR2 (250)
+  ) ;
+ALTER TABLE confiteria ADD CONSTRAINT confiteria_PK PRIMARY KEY ( id_confiteria ) ;
+
+
+CREATE TABLE cupon
+  (
+    id_cupones     INTEGER NOT NULL ,
+    valor_cupon    INTEGER ,
+    fech_venci     DATE ,
+    criterio       VARCHAR2 (250) ,
+    cliente_cedula INTEGER NOT NULL ,
+    estado         VARCHAR2 (20)
+  ) ;
+ALTER TABLE cupon ADD CONSTRAINT cupones_PK PRIMARY KEY ( id_cupones ) ;
+
+
+CREATE TABLE entrada
+  (
+    id_entrada             INTEGER NOT NULL ,
+    pelicula_id_pelicula   INTEGER NOT NULL ,
+    cantidad_entrada_DUDA  INTEGER ,
+    cliente_cedula         INTEGER NOT NULL ,
+    ubicacion_id_ubicacion INTEGER NOT NULL ,
+    factura_id_factura     INTEGER NOT NULL ,
+    hora_peli_id_hora_peli INTEGER NOT NULL
+  ) ;
+ALTER TABLE entrada ADD CONSTRAINT entradas_PK PRIMARY KEY ( id_entrada ) ;
+
+
+CREATE TABLE factura
+  (
+    id_factura             INTEGER NOT NULL ,
+    confi_cli_id_confi_cli INTEGER NOT NULL ,
+    entradas_id_entrada    INTEGER NOT NULL ,
+    cupones_id_cupones     INTEGER NOT NULL ,
+    cliente_cedula         INTEGER NOT NULL
+  ) ;
+ALTER TABLE factura ADD CONSTRAINT factura_PK PRIMARY KEY ( id_factura ) ;
+ALTER TABLE factura ADD CONSTRAINT factura__UN UNIQUE ( cupones_id_cupones ) ;
+
+
+CREATE TABLE funcion
+  (
+    id_funcion           INTEGER NOT NULL ,
+    pelicula_id_pelicula INTEGER NOT NULL ,
+    "horario_id_hora "   INTEGER NOT NULL ,
+    sala_id_sala         INTEGER NOT NULL
+  ) ;
+ALTER TABLE funcion ADD CONSTRAINT hora_peli_PK PRIMARY KEY ( id_funcion ) ;
+
+
+CREATE TABLE horario
+  ( "id_hora " INTEGER NOT NULL , hora DATE
+  ) ;
+ALTER TABLE horario ADD CONSTRAINT horario_PK PRIMARY KEY ( "id_hora " ) ;
+
+
+CREATE TABLE mercha
+  (
+    "id_merchandising " INTEGER NOT NULL ,
+    img                 VARCHAR2 (250) ,
+    precio              INTEGER ,
+    nombre              VARCHAR2 (60)
+  ) ;
+ALTER TABLE mercha ADD CONSTRAINT merchandising_PK PRIMARY KEY ( "id_merchandising " ) ;
+
+
+CREATE TABLE pelicula
+  (
+    id_pelicula INTEGER NOT NULL ,
+    nombre      VARCHAR2 (60) NOT NULL ,
+    trailer     VARCHAR2 (80) ,
+    img         VARCHAR2 (250) ,
+    sinopsis    VARCHAR2 (80) ,
+    estado      VARCHAR2 (6) NOT NULL ,
+    tipo        VARCHAR2 (20) NOT NULL ,
+    reparto     VARCHAR2 (50)
+  ) ;
+ALTER TABLE pelicula ADD CONSTRAINT pelicula_PK PRIMARY KEY ( id_pelicula ) ;
+
+
+CREATE TABLE sala
+  (
+    id_sala          INTEGER NOT NULL ,
+    teatro_id_teatro INTEGER NOT NULL
+  ) ;
+ALTER TABLE sala ADD CONSTRAINT sala_PK PRIMARY KEY ( id_sala ) ;
+
+
+CREATE TABLE silla
+  (
+    id_silla     INTEGER NOT NULL ,
+    sala_id_sala INTEGER NOT NULL
+  ) ;
+ALTER TABLE silla ADD CONSTRAINT distribu_silla_PK PRIMARY KEY ( id_silla ) ;
+
+
+CREATE TABLE tarjeta
+  ( id_tarjeta INTEGER NOT NULL , tipo VARCHAR2 (50)
+  ) ;
+ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_PK PRIMARY KEY ( id_tarjeta ) ;
+
+
+CREATE TABLE teatro
+  (
+    id_teatro        INTEGER NOT NULL ,
+    nombre           VARCHAR2 (50) ,
+    direccion        VARCHAR2 (60) ,
+    ciudad_id_ciudad INTEGER NOT NULL
+  ) ;
+ALTER TABLE teatro ADD CONSTRAINT teatro_PK PRIMARY KEY ( id_teatro ) ;
+
+
+CREATE TABLE ubica_silla
+  (
+    id_ubica             INTEGER NOT NULL ,
+    dist_sil_id_dist_sil INTEGER NOT NULL
+  ) ;
+ALTER TABLE ubica_silla ADD CONSTRAINT ubicacion_PK PRIMARY KEY ( id_ubica ) ;
+
+
+ALTER TABLE Cliente ADD CONSTRAINT Cliente_ciudad_FK FOREIGN KEY ( ciudad_id_ciudad ) REFERENCES ciudad ( id_ciudad ) ;
+
+ALTER TABLE Cliente ADD CONSTRAINT Cliente_tarjeta_FK FOREIGN KEY ( tarjeta_id_tarjeta ) REFERENCES tarjeta ( id_tarjeta ) ;
+
+ALTER TABLE Telefono ADD CONSTRAINT Telefono_Cliente_FK FOREIGN KEY ( cliente_cedula ) REFERENCES Cliente ( cedula ) ;
+
+ALTER TABLE cli_mecha ADD CONSTRAINT cli_mecha_factura_FK FOREIGN KEY ( factura_id_factura ) REFERENCES factura ( id_factura ) ;
+
+ALTER TABLE cli_mecha ADD CONSTRAINT "cli_mecha_merchandising _FK" FOREIGN KEY ( "mercha _id_mercha" ) REFERENCES mercha ( "id_merchandising " ) ;
+
+ALTER TABLE confi_cli ADD CONSTRAINT confi_cli_confiteria_FK FOREIGN KEY ( confiteria_id_confiteria ) REFERENCES confiteria ( id_confiteria ) ;
+
+ALTER TABLE confi_cli ADD CONSTRAINT confi_cli_factura_FK FOREIGN KEY ( factura_id_factura ) REFERENCES factura ( id_factura ) ;
+
+ALTER TABLE cupon ADD CONSTRAINT cupones_Cliente_FK FOREIGN KEY ( cliente_cedula ) REFERENCES Cliente ( cedula ) ;
+
+ALTER TABLE silla ADD CONSTRAINT distribu_silla_sala_FK FOREIGN KEY ( sala_id_sala ) REFERENCES sala ( id_sala ) ;
+
+ALTER TABLE entrada ADD CONSTRAINT entradas_Cliente_FK FOREIGN KEY ( cliente_cedula ) REFERENCES Cliente ( cedula ) ;
+
+ALTER TABLE entrada ADD CONSTRAINT entradas_factura_FK FOREIGN KEY ( factura_id_factura ) REFERENCES factura ( id_factura ) ;
+
+ALTER TABLE entrada ADD CONSTRAINT entradas_hora_peli_FK FOREIGN KEY ( hora_peli_id_hora_peli ) REFERENCES funcion ( id_funcion ) ;
+
+ALTER TABLE entrada ADD CONSTRAINT entradas_pelicula_FK FOREIGN KEY ( pelicula_id_pelicula ) REFERENCES pelicula ( id_pelicula ) ;
+
+ALTER TABLE entrada ADD CONSTRAINT entradas_ubicacion_FK FOREIGN KEY ( ubicacion_id_ubicacion ) REFERENCES ubica_silla ( id_ubica ) ;
+
+ALTER TABLE factura ADD CONSTRAINT factura_Cliente_FK FOREIGN KEY ( cliente_cedula ) REFERENCES Cliente ( cedula ) ;
+
+ALTER TABLE factura ADD CONSTRAINT factura_cupones_FK FOREIGN KEY ( cupones_id_cupones ) REFERENCES cupon ( id_cupones ) ;
+
+ALTER TABLE funcion ADD CONSTRAINT funcion_sala_FK FOREIGN KEY ( sala_id_sala ) REFERENCES sala ( id_sala ) ;
+
+ALTER TABLE funcion ADD CONSTRAINT hora_peli_horario_FK FOREIGN KEY ( "horario_id_hora " ) REFERENCES horario ( "id_hora " ) ;
+
+ALTER TABLE funcion ADD CONSTRAINT hora_peli_pelicula_FK FOREIGN KEY ( pelicula_id_pelicula ) REFERENCES pelicula ( id_pelicula ) ;
+
+ALTER TABLE sala ADD CONSTRAINT sala_teatro_FK FOREIGN KEY ( teatro_id_teatro ) REFERENCES teatro ( id_teatro ) ;
+
+ALTER TABLE teatro ADD CONSTRAINT teatro_ciudad_FK FOREIGN KEY ( ciudad_id_ciudad ) REFERENCES ciudad ( id_ciudad ) ;
+
+ALTER TABLE ubica_silla ADD CONSTRAINT ubica_silla_distribu_silla_FK FOREIGN KEY ( dist_sil_id_dist_sil ) REFERENCES silla ( id_silla ) ;
+
+
+-- Informe de Resumen de Oracle SQL Developer Data Modeler: 
+-- 
+-- CREATE TABLE                            20
+-- CREATE INDEX                             0
+-- ALTER TABLE                             42
+-- CREATE VIEW                              0
+-- ALTER VIEW                               0
+-- CREATE PACKAGE                           0
+-- CREATE PACKAGE BODY                      0
+-- CREATE PROCEDURE                         0
+-- CREATE FUNCTION                          0
+-- CREATE TRIGGER                           0
+-- ALTER TRIGGER                            0
+-- CREATE COLLECTION TYPE                   0
+-- CREATE STRUCTURED TYPE                   0
+-- CREATE STRUCTURED TYPE BODY              0
+-- CREATE CLUSTER                           0
+-- CREATE CONTEXT                           0
+-- CREATE DATABASE                          0
+-- CREATE DIMENSION                         0
+-- CREATE DIRECTORY                         0
+-- CREATE DISK GROUP                        0
+-- CREATE ROLE                              0
+-- CREATE ROLLBACK SEGMENT                  0
+-- CREATE SEQUENCE                          0
+-- CREATE MATERIALIZED VIEW                 0
+-- CREATE SYNONYM                           0
+-- CREATE TABLESPACE                        0
+-- CREATE USER                              0
+-- 
+-- DROP TABLESPACE                          0
+-- DROP DATABASE                            0
+-- 
+-- REDACTION POLICY                         0
+-- 
+-- ORDS DROP SCHEMA                         0
+-- ORDS ENABLE SCHEMA                       0
+-- ORDS ENABLE OBJECT                       0
+-- 
+-- ERRORS                                   0
+-- WARNINGS                                 0
