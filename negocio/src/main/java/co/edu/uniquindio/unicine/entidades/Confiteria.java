@@ -1,8 +1,7 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,8 +11,24 @@ public class Confiteria implements Serializable {
     private Integer idConfiteria;
     private String  nombre;
     private Integer precio;
+    private String img;
 
     public Confiteria() {
+    }
+
+    public Confiteria(Integer idConfiteria, String nombre, Integer precio, String img) {
+        this.idConfiteria = idConfiteria;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.img = img;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public Integer getIdConfiteria() {
@@ -46,6 +61,7 @@ public class Confiteria implements Serializable {
                 "idConfiteria=" + idConfiteria +
                 ", nombre='" + nombre + '\'' +
                 ", precio=" + precio +
+                ", img=" + img +
                 '}';
     }
 

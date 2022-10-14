@@ -1,13 +1,12 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlIDREF;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Merchandising implements Serializable {
+public class Merchandising  implements Serializable {
     @Id
     private  Integer idMerchandising;
     private  String img;
@@ -15,6 +14,13 @@ public class Merchandising implements Serializable {
     private  String nombre;
 
     public Merchandising() {
+    }
+
+    public Merchandising(Integer idMerchandising, String img, Double precio, String nombre) {
+        this.idMerchandising = idMerchandising;
+        this.img = img;
+        this.precio = precio;
+        this.nombre = nombre;
     }
 
     public Integer getIdMerchandising() {

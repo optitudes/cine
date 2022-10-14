@@ -1,4 +1,4 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,19 +7,21 @@ import java.util.Objects;
 
 @Entity
 public class Administrator implements Serializable {
+
+    //id_adm in
     @Id
     private Integer idAdmin;
     private String email;
-    private String contra;
+    private int contra;
 
     public Administrator() {
     }
 
-    public String getContra() {
+    public int getContra() {
         return contra;
     }
 
-    public void setContra(String contra) {
+    public void setContra(int contra) {
         this.contra = contra;
     }
 

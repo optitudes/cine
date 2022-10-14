@@ -1,4 +1,4 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,16 +9,16 @@ import java.util.Objects;
 public class Ciudad implements Serializable {
     @Id
     private Integer idCiudad;
-    private String  nombre;
-    private Integer departamentoIdDepartamento;
+    private String nombre;
+
 
     public Ciudad() {
     }
 
-    public Ciudad(Integer idCiudad, String nombre, Integer departamentoIdDepartamento) {
+    public Ciudad(Integer idCiudad, String nombre) {
         this.idCiudad = idCiudad;
         this.nombre = nombre;
-        this.departamentoIdDepartamento = departamentoIdDepartamento;
+
     }
 
     public Integer getIdCiudad() {
@@ -37,20 +37,16 @@ public class Ciudad implements Serializable {
         this.nombre = nombre;
     }
 
-    public Integer getDepartamentoIdDepartamento() {
-        return departamentoIdDepartamento;
-    }
 
-    public void setDepartamentoIdDepartamento(Integer departamentoIdDepartamento) {
-        this.departamentoIdDepartamento = departamentoIdDepartamento;
-    }
+
+
 
     @Override
     public String toString() {
         return "Ciudad{" +
                 "idCiudad=" + idCiudad +
                 ", nombre='" + nombre + '\'' +
-                ", departamentoIdDepartamento=" + departamentoIdDepartamento +
+
                 '}';
     }
 

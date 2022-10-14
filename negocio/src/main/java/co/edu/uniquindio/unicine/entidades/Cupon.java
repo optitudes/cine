@@ -1,6 +1,8 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -8,15 +10,25 @@ import java.util.Objects;
 
 @Entity
 public class Cupon implements Serializable {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+
     private Integer   idCupon;
     private Double   valorCupon;
     private LocalDate fechVenci;
     private String    criterio;
-    private Integer   clienteCedula;
+
     private String    estado;
 
     public Cupon() {
+    }
+
+    public Cupon(Integer idCupon, Double valorCupon, LocalDate fechVenci, String criterio, String estado) {
+        this.idCupon = idCupon;
+        this.valorCupon = valorCupon;
+        this.fechVenci = fechVenci;
+        this.criterio = criterio;
+        this.estado = estado;
     }
 
     public Integer getIdCupon() {
@@ -51,13 +63,7 @@ public class Cupon implements Serializable {
         this.criterio = criterio;
     }
 
-    public Integer getClienteCedula() {
-        return clienteCedula;
-    }
 
-    public void setClienteCedula(Integer clienteCedula) {
-        this.clienteCedula = clienteCedula;
-    }
 
     public String getEstado() {
         return estado;
@@ -74,7 +80,7 @@ public class Cupon implements Serializable {
                 ", valorCupon=" + valorCupon +
                 ", fechVenci=" + fechVenci +
                 ", criterio='" + criterio + '\'' +
-                ", clienteCedula=" + clienteCedula +
+
                 ", estado='" + estado + '\'' +
                 '}';
     }

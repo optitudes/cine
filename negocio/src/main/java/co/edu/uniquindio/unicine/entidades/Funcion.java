@@ -1,4 +1,4 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,11 +9,13 @@ import java.util.Objects;
 public class Funcion implements Serializable {
     @Id
     private Integer idFuncion;
-    private Integer peliculaIdPelicula;
-    private Integer horaIdHora;
-    private Integer salaIdSala;
+
 
     public Funcion() {
+    }
+
+    public Funcion(Integer idFuncion) {
+        this.idFuncion = idFuncion;
     }
 
     public Integer getIdFuncion() {
@@ -24,37 +26,13 @@ public class Funcion implements Serializable {
         this.idFuncion = idFuncion;
     }
 
-    public Integer getPeliculaIdPelicula() {
-        return peliculaIdPelicula;
-    }
 
-    public void setPeliculaIdPelicula(Integer peliculaIdPelicula) {
-        this.peliculaIdPelicula = peliculaIdPelicula;
-    }
-
-    public Integer getHoraIdHora() {
-        return horaIdHora;
-    }
-
-    public void setHoraIdHora(Integer horaIdHora) {
-        this.horaIdHora = horaIdHora;
-    }
-
-    public Integer getSalaIdSala() {
-        return salaIdSala;
-    }
-
-    public void setSalaIdSala(Integer salaIdSala) {
-        this.salaIdSala = salaIdSala;
-    }
 
     @Override
     public String toString() {
         return "Funcion{" +
                 "idFuncion=" + idFuncion +
-                ", peliculaIdPelicula=" + peliculaIdPelicula +
-                ", horaIdHora=" + horaIdHora +
-                ", salaIdSala=" + salaIdSala +
+
                 '}';
     }
 

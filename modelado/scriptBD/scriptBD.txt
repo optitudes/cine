@@ -9,10 +9,10 @@
 CREATE TABLE Cliente
   (
     cedula             INTEGER NOT NULL ,
-    nombre_completo    VARCHAR2 (60) NOT NULL ,
-    email              VARCHAR2 (50) ,
-    img_perfil         VARCHAR2 (250) ,
-    contraseña         VARCHAR2 (50) NOT NULL ,
+    nombre_completo    VARCHAR (60) NOT NULL ,
+    email              VARCHAR (50) ,
+    img_perfil         VARCHAR (250) ,
+    contraseña         VARCHAR (50) NOT NULL ,
     ciudad_id_ciudad   INTEGER NOT NULL ,
     tarjeta_id_tarjeta INTEGER NOT NULL
   ) ;
@@ -23,7 +23,7 @@ CREATE TABLE Telefono
   (
     id_telefono    INTEGER NOT NULL ,
     numero         INTEGER NOT NULL ,
-    tipo           VARCHAR2 (30) ,
+    tipo           VARCHAR (30) ,
     cliente_cedula INTEGER NOT NULL
   ) ;
 ALTER TABLE Telefono ADD CONSTRAINT Telefono_PK PRIMARY KEY ( id_telefono ) ;
@@ -32,7 +32,7 @@ ALTER TABLE Telefono ADD CONSTRAINT Telefono_PK PRIMARY KEY ( id_telefono ) ;
 CREATE TABLE admin_teatr
   (
     id_admin_teatro INTEGER NOT NULL ,
-    email           VARCHAR2 (100) ,
+    email           VARCHAR (100) ,
     contra          INTEGER
   ) ;
 ALTER TABLE admin_teatr ADD CONSTRAINT admin_teatr_PK PRIMARY KEY ( id_admin_teatro ) ;
@@ -41,7 +41,7 @@ ALTER TABLE admin_teatr ADD CONSTRAINT admin_teatr_PK PRIMARY KEY ( id_admin_tea
 CREATE TABLE administrador
   (
     id_admin INTEGER NOT NULL ,
-    email    VARCHAR2 (100) ,
+    email    VARCHAR (100) ,
     contra   INTEGER
   ) ;
 ALTER TABLE administrador ADD CONSTRAINT administrador_PK PRIMARY KEY ( id_admin ) ;
@@ -50,7 +50,7 @@ ALTER TABLE administrador ADD CONSTRAINT administrador_PK PRIMARY KEY ( id_admin
 CREATE TABLE ciudad
   (
     id_ciudad                    INTEGER NOT NULL ,
-    nombre                       VARCHAR2 (50) ,
+    nombre                       VARCHAR (50) ,
     departamento_id_departamento INTEGER NOT NULL
   ) ;
 ALTER TABLE ciudad ADD CONSTRAINT ciudad_PK PRIMARY KEY ( id_ciudad ) ;
@@ -60,7 +60,7 @@ CREATE TABLE cli_mecha
   (
     id_cli_mecha        INTEGER ,
     cliente_cedula      INTEGER NOT NULL ,
-    "mercha _id_mercha" INTEGER NOT NULL ,
+    mercha_id_mercha INTEGER NOT NULL ,
     factura_id_factura  INTEGER NOT NULL
   ) ;
 
@@ -79,9 +79,9 @@ ALTER TABLE confi_cli ADD CONSTRAINT confiteria_cliente_PK PRIMARY KEY ( id_conf
 CREATE TABLE confiteria
   (
     id_confiteria INTEGER NOT NULL ,
-    nombre        VARCHAR2 (250) ,
+    nombre        VARCHAR (250) ,
     precio        INTEGER ,
-    img           VARCHAR2 (250)
+    img           VARCHAR (250)
   ) ;
 ALTER TABLE confiteria ADD CONSTRAINT confiteria_PK PRIMARY KEY ( id_confiteria ) ;
 
@@ -91,9 +91,9 @@ CREATE TABLE cupon
     id_cupones     INTEGER NOT NULL ,
     valor_cupon    INTEGER ,
     fech_venci     DATE ,
-    criterio       VARCHAR2 (250) ,
+    criterio       VARCHAR (250) ,
     cliente_cedula INTEGER NOT NULL ,
-    estado         VARCHAR2 (20)
+    estado         VARCHAR (20)
   ) ;
 ALTER TABLE cupon ADD CONSTRAINT cupones_PK PRIMARY KEY ( id_cupones ) ;
 
@@ -127,38 +127,38 @@ CREATE TABLE funcion
   (
     id_funcion           INTEGER NOT NULL ,
     pelicula_id_pelicula INTEGER NOT NULL ,
-    "horario_id_hora "   INTEGER NOT NULL ,
+    horario_id_hora    INTEGER NOT NULL ,
     sala_id_sala         INTEGER NOT NULL
   ) ;
 ALTER TABLE funcion ADD CONSTRAINT hora_peli_PK PRIMARY KEY ( id_funcion ) ;
 
 
 CREATE TABLE horario
-  ( "id_hora " INTEGER NOT NULL , hora DATE
+  ( id_hora  INTEGER NOT NULL , hora DATE
   ) ;
-ALTER TABLE horario ADD CONSTRAINT horario_PK PRIMARY KEY ( "id_hora " ) ;
+ALTER TABLE horario ADD CONSTRAINT horario_PK PRIMARY KEY ( id_hora) ;
 
 
 CREATE TABLE mercha
   (
-    "id_merchandising " INTEGER NOT NULL ,
-    img                 VARCHAR2 (250) ,
+    id_merchandising  INTEGER NOT NULL ,
+    img                 VARCHAR (250) ,
     precio              INTEGER ,
-    nombre              VARCHAR2 (60)
+    nombre              VARCHAR (60)
   ) ;
-ALTER TABLE mercha ADD CONSTRAINT merchandising_PK PRIMARY KEY ( "id_merchandising " ) ;
+ALTER TABLE mercha ADD CONSTRAINT merchandising_PK PRIMARY KEY ( id_merchandising ) ;
 
 
 CREATE TABLE pelicula
   (
     id_pelicula INTEGER NOT NULL ,
-    nombre      VARCHAR2 (60) NOT NULL ,
-    trailer     VARCHAR2 (80) ,
-    img         VARCHAR2 (250) ,
-    sinopsis    VARCHAR2 (80) ,
-    estado      VARCHAR2 (6) NOT NULL ,
-    tipo        VARCHAR2 (20) NOT NULL ,
-    reparto     VARCHAR2 (50)
+    nombre      VARCHAR (60) NOT NULL ,
+    trailer     VARCHAR (80) ,
+    img         VARCHAR (250) ,
+    sinopsis    VARCHAR (80) ,
+    estado      VARCHAR (6) NOT NULL ,
+    tipo        VARCHAR (20) NOT NULL ,
+    reparto     VARCHAR (50)
   ) ;
 ALTER TABLE pelicula ADD CONSTRAINT pelicula_PK PRIMARY KEY ( id_pelicula ) ;
 
@@ -180,7 +180,7 @@ ALTER TABLE silla ADD CONSTRAINT distribu_silla_PK PRIMARY KEY ( id_silla ) ;
 
 
 CREATE TABLE tarjeta
-  ( id_tarjeta INTEGER NOT NULL , tipo VARCHAR2 (50)
+  ( id_tarjeta INTEGER NOT NULL , tipo VARCHAR (50)
   ) ;
 ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_PK PRIMARY KEY ( id_tarjeta ) ;
 
@@ -211,7 +211,7 @@ ALTER TABLE Telefono ADD CONSTRAINT Telefono_Cliente_FK FOREIGN KEY ( cliente_ce
 
 ALTER TABLE cli_mecha ADD CONSTRAINT cli_mecha_factura_FK FOREIGN KEY ( factura_id_factura ) REFERENCES factura ( id_factura ) ;
 
-ALTER TABLE cli_mecha ADD CONSTRAINT "cli_mecha_merchandising _FK" FOREIGN KEY ( "mercha _id_mercha" ) REFERENCES mercha ( "id_merchandising " ) ;
+ALTER TABLE cli_mecha ADD CONSTRAINT cli_mecha_merchandising _FK FOREIGN KEY ( "mercha _id_mercha" ) REFERENCES mercha ( "id_merchandising " ) ;
 
 ALTER TABLE confi_cli ADD CONSTRAINT confi_cli_confiteria_FK FOREIGN KEY ( confiteria_id_confiteria ) REFERENCES confiteria ( id_confiteria ) ;
 

@@ -1,19 +1,28 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 public class AdminTeatro implements Serializable {
-    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Id
     private Integer idAdminTeatro;
     private String  email;
     private String  contra;
 
     public AdminTeatro() {
 
+    }
+
+    public AdminTeatro(Integer idAdminTeatro, String email, String contra) {
+        this.idAdminTeatro = idAdminTeatro;
+        this.email = email;
+        this.contra = contra;
     }
 
     public Integer getIdAdminTeatro() {

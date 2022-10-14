@@ -1,4 +1,4 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,6 +18,17 @@ public class Pelicula implements Serializable {
     private String  reparto;
 
     public Pelicula() {
+    }
+
+    public Pelicula(Integer idPelicula, String nombre, String trailer, String img, String sinopsis, String estado, String tipo, String reparto) {
+        this.idPelicula = idPelicula;
+        this.nombre = nombre;
+        this.trailer = trailer;
+        this.img = img;
+        this.sinopsis = sinopsis;
+        this.estado = estado;
+        this.tipo = tipo;
+        this.reparto = reparto;
     }
 
     public Integer getIdPelicula() {

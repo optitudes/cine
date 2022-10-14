@@ -1,4 +1,4 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,9 +11,15 @@ public class Teatro implements Serializable {
     private Integer idTeatro;
     private String  nombre;
     private String  direccion;
-    private Integer ciudadIdCiudad;
+
 
     public Teatro() {
+    }
+
+    public Teatro(Integer idTeatro, String nombre, String direccion) {
+        this.idTeatro = idTeatro;
+        this.nombre = nombre;
+        this.direccion = direccion;
     }
 
     public Integer getIdTeatro() {
@@ -40,13 +46,6 @@ public class Teatro implements Serializable {
         this.direccion = direccion;
     }
 
-    public Integer getCiudadIdCiudad() {
-        return ciudadIdCiudad;
-    }
-
-    public void setCiudadIdCiudad(Integer ciudadIdCiudad) {
-        this.ciudadIdCiudad = ciudadIdCiudad;
-    }
 
     @Override
     public String toString() {
@@ -54,7 +53,7 @@ public class Teatro implements Serializable {
                 "idTeatro=" + idTeatro +
                 ", nombre='" + nombre + '\'' +
                 ", direccion='" + direccion + '\'' +
-                ", ciudadIdCiudad=" + ciudadIdCiudad +
+
                 '}';
     }
 

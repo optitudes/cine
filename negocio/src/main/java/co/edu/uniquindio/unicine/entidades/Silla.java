@@ -1,4 +1,4 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,9 +9,13 @@ import java.util.Objects;
 public class Silla implements Serializable {
     @Id
     private Integer idSilla;
-    private Integer salaIdSala;
+
 
     public Silla() {
+    }
+
+    public Silla(Integer idSilla) {
+        this.idSilla = idSilla;
     }
 
     public Integer getIdSilla() {
@@ -22,19 +26,13 @@ public class Silla implements Serializable {
         this.idSilla = idSilla;
     }
 
-    public Integer getSalaIdSala() {
-        return salaIdSala;
-    }
 
-    public void setSalaIdSala(Integer salaIdSala) {
-        this.salaIdSala = salaIdSala;
-    }
 
     @Override
     public String toString() {
         return "Silla{" +
                 "idSilla=" + idSilla +
-                ", salaIdSala=" + salaIdSala +
+
                 '}';
     }
 

@@ -1,4 +1,4 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,12 +9,15 @@ public class Telefono implements Serializable {
     @Id
     private Integer numero;
     private String  tipo;
-    private Integer clienteCedula;
+
 
     public Telefono() {
     }
 
-
+    public Telefono(Integer numero, String tipo) {
+        this.numero = numero;
+        this.tipo = tipo;
+    }
 
     public Integer getNumero() {
         return numero;
@@ -32,20 +35,14 @@ public class Telefono implements Serializable {
         this.tipo = tipo;
     }
 
-    public Integer getClienteCedula() {
-        return clienteCedula;
-    }
 
-    public void setClienteCedula(Integer clienteCedula) {
-        this.clienteCedula = clienteCedula;
-    }
 
     @Override
     public String toString() {
         return "Telefono{" +
                 ", numero=" + numero +
                 ", tipo='" + tipo + '\'' +
-                ", clienteCedula=" + clienteCedula +
+
                 '}';
     }
 

@@ -1,4 +1,4 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,10 +11,15 @@ public class Factura implements Serializable {
     private Integer idFactura;
     private Integer confiCliIdConfiCli;
     private Integer entradasIdEntradas;
-    private Integer cuponesIdCupones;
-    private Integer clienteCedula;
+
 
     public Factura() {
+    }
+
+    public Factura(Integer idFactura, Integer confiCliIdConfiCli, Integer entradasIdEntradas) {
+        this.idFactura = idFactura;
+        this.confiCliIdConfiCli = confiCliIdConfiCli;
+        this.entradasIdEntradas = entradasIdEntradas;
     }
 
     public Integer getIdFactura() {
@@ -41,21 +46,7 @@ public class Factura implements Serializable {
         this.entradasIdEntradas = entradasIdEntradas;
     }
 
-    public Integer getCuponesIdCupones() {
-        return cuponesIdCupones;
-    }
 
-    public void setCuponesIdCupones(Integer cuponesIdCupones) {
-        this.cuponesIdCupones = cuponesIdCupones;
-    }
-
-    public Integer getClienteCedula() {
-        return clienteCedula;
-    }
-
-    public void setClienteCedula(Integer clienteCedula) {
-        this.clienteCedula = clienteCedula;
-    }
 
     @Override
     public String toString() {
@@ -63,8 +54,7 @@ public class Factura implements Serializable {
                 "idFactura=" + idFactura +
                 ", confiCliIdConfiCli=" + confiCliIdConfiCli +
                 ", entradasIdEntradas=" + entradasIdEntradas +
-                ", cuponesIdCupones=" + cuponesIdCupones +
-                ", clienteCedula=" + clienteCedula +
+
                 '}';
     }
 

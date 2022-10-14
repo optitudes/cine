@@ -1,4 +1,4 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,10 +13,18 @@ public class Cliente implements Serializable {
     private String  email;
     private String  imgPerfil;
     private String  contrasenia;
-    private Integer ciudadIdCiudad;
-    private Integer tarjetaIdTarjeta;
+
+    private Tarjeta tarjeta;
 
     public Cliente() {
+    }
+
+    public Cliente(Integer cedula, String nombreCompleto, String email, String imgPerfil, String contrasenia) {
+        this.cedula = cedula;
+        this.nombreCompleto = nombreCompleto;
+        this.email = email;
+        this.imgPerfil = imgPerfil;
+        this.contrasenia = contrasenia;
     }
 
     public Integer getCedula() {
@@ -59,20 +67,12 @@ public class Cliente implements Serializable {
         this.contrasenia = contrasenia;
     }
 
-    public Integer getCiudadIdCiudad() {
-        return ciudadIdCiudad;
+    public Tarjeta getTarjeta() {
+        return tarjeta;
     }
 
-    public void setCiudadIdCiudad(Integer ciudadIdCiudad) {
-        this.ciudadIdCiudad = ciudadIdCiudad;
-    }
-
-    public Integer getTarjetaIdTarjeta() {
-        return tarjetaIdTarjeta;
-    }
-
-    public void setTarjetaIdTarjeta(Integer tarjetaIdTarjeta) {
-        this.tarjetaIdTarjeta = tarjetaIdTarjeta;
+    public void setTarjeta(Tarjeta tarjeta) {
+        this.tarjeta = tarjeta;
     }
 
     @Override
@@ -83,8 +83,7 @@ public class Cliente implements Serializable {
                 ", email='" + email + '\'' +
                 ", imgPerfil='" + imgPerfil + '\'' +
                 ", contrasenia='" + contrasenia + '\'' +
-                ", ciudadIdCiudad=" + ciudadIdCiudad +
-                ", tarjetaIdTarjeta=" + tarjetaIdTarjeta +
+
                 '}';
     }
 

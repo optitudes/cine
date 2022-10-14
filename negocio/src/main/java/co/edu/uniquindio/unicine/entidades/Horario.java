@@ -1,9 +1,8 @@
-package entidades;
+package co.edu.uniquindio.unicine.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Objects;
 
@@ -14,6 +13,11 @@ public class Horario implements Serializable {
     private LocalTime hora;
 
     public Horario() {
+    }
+
+    public Horario(Integer idHora, LocalTime hora) {
+        this.idHora = idHora;
+        this.hora = hora;
     }
 
     public Integer getIdHora() {
