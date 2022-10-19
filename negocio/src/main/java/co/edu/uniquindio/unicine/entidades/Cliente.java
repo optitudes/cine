@@ -4,7 +4,10 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -13,9 +16,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-
-
-
 
 @Entity
 public class Cliente implements Serializable {
@@ -27,5 +27,18 @@ public class Cliente implements Serializable {
     private String  imgPerfil;
     private String  contrasenia;
     private Tarjeta tarjeta;
+
+    @ManyToOne
+    private Ciudad ciudad;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Telefono> telefonos;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Cupon> cupones;
+
+
+
+
 
 }

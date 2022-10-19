@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 @Getter
 @Setter
@@ -20,6 +21,9 @@ public class Telefono implements Serializable {
     @EqualsAndHashCode.Include
     private Integer numero;
     private String  tipo;
+
+    @ManyToOne
+    private Cliente cliente;
 
 
 }

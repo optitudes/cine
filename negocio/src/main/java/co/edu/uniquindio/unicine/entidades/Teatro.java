@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -23,5 +24,8 @@ public class Teatro implements Serializable {
     private String  nombre;
     private String  direccion;
 
+
+    @ManyToOne
+    private Ciudad ciudad;
 
 }
