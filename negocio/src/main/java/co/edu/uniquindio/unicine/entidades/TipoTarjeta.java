@@ -1,0 +1,10 @@
+package co.edu.uniquindio.unicine.entidades;
+
+import java.io.Serializable;
+
+public enum TipoTarjeta implements Serializable {
+
+    AHORRO,
+    DEBITO
+
+}

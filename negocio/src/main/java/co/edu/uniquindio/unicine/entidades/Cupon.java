@@ -28,5 +28,8 @@ public class Cupon implements Serializable {
     @ManyToOne
     private Cliente cliente;
 
+    @OneToOne
+    private Factura factura;
+
 
 }

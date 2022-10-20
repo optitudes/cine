@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import java.io.Serializable;
 import java.util.Objects;
 @Getter
@@ -24,6 +25,9 @@ public class Factura implements Serializable {
 
     @ManyToOne
     private Cliente cliente;
+
+    @OneToOne(mappedBy = "factura")
+    private Cupon cupon;
 
 
 }
