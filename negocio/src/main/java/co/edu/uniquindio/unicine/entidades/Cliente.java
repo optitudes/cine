@@ -37,7 +37,8 @@ public class Cliente implements Serializable {
     @OneToMany(mappedBy = "cliente")
     private List<Cupon> cupones;
 
-
+    @OneToMany(mappedBy = "cliente")
+    private List<Factura> facturas;
 
 
 

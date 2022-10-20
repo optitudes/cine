@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -19,6 +20,15 @@ public class Funcion implements Serializable {
     @Id
     @EqualsAndHashCode.Include
     private Integer idFuncion;
+
+    @ManyToOne
+    private Horario horario;
+
+    @ManyToOne
+    private Sala sala;
+
+    @ManyToOne
+    private Pelicula pelicula;
 
 
 }

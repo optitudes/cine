@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 @Getter
@@ -20,6 +21,9 @@ public class Factura implements Serializable {
     private Integer idFactura;
     private Integer confiCliIdConfiCli;
     private Integer entradasIdEntradas;
+
+    @ManyToOne
+    private Cliente cliente;
 
 
 }

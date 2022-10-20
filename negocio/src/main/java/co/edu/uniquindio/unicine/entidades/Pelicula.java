@@ -4,7 +4,9 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -13,8 +15,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-
-
 
 @Entity
 public class Pelicula implements Serializable {
@@ -28,5 +28,9 @@ public class Pelicula implements Serializable {
     private String  estado;
     private String  tipo;
     private String  reparto;
+
+    @OneToMany(mappedBy = "pelicula")
+    private List<Funcion> funciones;
+
 
 }
