@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -20,6 +21,10 @@ public class Silla implements Serializable {
     @Id
     @EqualsAndHashCode.Include
     private Integer idSilla;
+
+
+    @ManyToOne
+    private Sala sala;
 
 
 }
