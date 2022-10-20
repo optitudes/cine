@@ -6,35 +6,24 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
-import java.util.Objects;
+
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
+public class Cliente_Merchandising implements Serializable {
 
-@Entity
-public class Entrada implements Serializable {
     @Id
     @EqualsAndHashCode.Include
-    private Integer idEntrada;
-    private Integer cantidadEntradas;
+    private Integer idCliente_Merchandising;
 
     @ManyToOne
-    private Cliente cliente;
+    private Merchandising merchandising;
 
     @ManyToOne
     private Factura factura;
-
-    @ManyToOne
-    private Funcion funcion;
-
-    @ManyToOne
-    private Pelicula pelicula;
-
-    @ManyToOne
-    private Ubica_Silla ubica_silla;
-
 
 }

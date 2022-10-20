@@ -1,32 +1,34 @@
 package co.edu.uniquindio.unicine.entidades;
 
+
 import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
+
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
+public class Confiteria_Cliente implements Serializable {
 
-
-@Entity
-
-public class Confiteria implements Serializable {
     @Id
     @EqualsAndHashCode.Include
-    private Integer idConfiteria;
-    private String  nombre;
-    private Integer precio;
-    private String img;
+    private Integer idConfi_Cli;
 
-    @OneToMany(mappedBy = "confiteria")
-    private List<Confiteria_Cliente> confiteria_clientes;
+    private Integer precio;
+
+    @ManyToOne
+    private Confiteria confiteria;
+
+    @ManyToOne
+    private Factura factura;
+
+
 
 }

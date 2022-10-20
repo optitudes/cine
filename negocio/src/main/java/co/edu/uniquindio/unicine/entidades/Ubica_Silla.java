@@ -3,11 +3,9 @@ package co.edu.uniquindio.unicine.entidades;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,6 +22,9 @@ public class Ubica_Silla implements Serializable {
 
     @ManyToOne
     private Silla silla;
+
+    @OneToMany(mappedBy = "ubica_silla")
+    private List<Entrada> entradas;
 
 
 }

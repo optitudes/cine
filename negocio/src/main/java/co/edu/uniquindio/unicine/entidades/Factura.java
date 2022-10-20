@@ -2,11 +2,9 @@ package co.edu.uniquindio.unicine.entidades;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 @Getter
 @Setter
@@ -29,5 +27,13 @@ public class Factura implements Serializable {
     @OneToOne(mappedBy = "factura")
     private Cupon cupon;
 
+    @OneToMany(mappedBy = "factura")
+    private List<Confiteria_Cliente> confiteria_clientes;
+
+    @OneToMany(mappedBy = "factura")
+    private List<Cliente_Merchandising> cliente_merchandisings;
+
+    @OneToMany(mappedBy = "factura")
+    private List<Entrada> entradas;
 
 }

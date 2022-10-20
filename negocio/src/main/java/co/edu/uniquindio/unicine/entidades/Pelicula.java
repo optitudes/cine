@@ -32,5 +32,8 @@ public class Pelicula implements Serializable {
     @OneToMany(mappedBy = "pelicula")
     private List<Funcion> funciones;
 
+    @OneToMany(mappedBy = "pelicula")
+    private List<Entrada> entradas;
+
 
 }
