@@ -2,11 +2,9 @@ package co.edu.uniquindio.unicine.entidades;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -26,5 +24,8 @@ public class AdminTeatro implements Serializable {
     private Integer idAdminTeatro;
     private String  email;
     private String  contra;
+
+    @OneToMany(mappedBy = "adminTeatro")
+    private List<Teatro> teatros;
 
 }

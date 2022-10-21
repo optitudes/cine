@@ -23,6 +23,10 @@ public class Cliente implements Serializable {
     private String  email;
     private String  imgPerfil;
     private String  contrasenia;
+
+    @ElementCollection
+    private List<String> telefonos;
+
     private Tarjeta tarjeta;
 
 
@@ -31,6 +35,7 @@ public class Cliente implements Serializable {
         this.email = email;
         this.imgPerfil = imgPerfil;
         this.contrasenia = contrasenia;
+        this.telefonos = telefonos;
     }
 
     @ToString.Exclude
