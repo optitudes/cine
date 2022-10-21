@@ -2,9 +2,7 @@ package co.edu.uniquindio.unicine.entidades;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -18,6 +16,7 @@ public class Cliente_Merchandising implements Serializable {
 
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCliente_Merchandising;
 
     @ManyToOne

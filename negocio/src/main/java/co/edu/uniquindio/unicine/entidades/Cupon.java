@@ -15,9 +15,10 @@ import java.util.Objects;
 
 @Entity
 public class Cupon implements Serializable {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer   idCupon;
     private Double   valorCupon;
     private LocalDate fechVenci;

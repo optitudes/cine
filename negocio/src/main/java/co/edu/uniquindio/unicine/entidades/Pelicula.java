@@ -2,9 +2,7 @@ package co.edu.uniquindio.unicine.entidades;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -20,6 +18,7 @@ import java.util.Objects;
 public class Pelicula implements Serializable {
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPelicula;
     private String  nombre;
     private String  trailer;

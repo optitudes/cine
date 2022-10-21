@@ -19,9 +19,10 @@ import java.util.Objects;
 
 @Entity
 public class AdminTeatro implements Serializable {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAdminTeatro;
     private String  email;
     private String  contra;

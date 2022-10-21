@@ -18,6 +18,7 @@ public class Ubica_Silla implements Serializable {
 
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUbica;
 
     @ManyToOne

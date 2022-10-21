@@ -17,6 +17,7 @@ import java.util.Objects;
 public class Factura implements Serializable {
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idFactura;
     private Integer confiCliIdConfiCli;
     private Integer entradasIdEntradas;

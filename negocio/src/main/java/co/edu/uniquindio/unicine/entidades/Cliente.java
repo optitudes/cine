@@ -10,7 +10,6 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 
@@ -26,18 +25,27 @@ public class Cliente implements Serializable {
     private String  contrasenia;
     private Tarjeta tarjeta;
 
+
+    public Cliente(String nombreCompleto, String email, String imgPerfil, String contrasenia, List<String> telefonos) {
+        this.nombreCompleto = nombreCompleto;
+        this.email = email;
+        this.imgPerfil = imgPerfil;
+        this.contrasenia = contrasenia;
+    }
+
+    @ToString.Exclude
     @ManyToOne
     private Ciudad ciudad;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Telefono> telefonos;
-
+    @ToString.Exclude
     @OneToMany(mappedBy = "cliente")
     private List<Cupon> cupones;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "cliente")
     private List<Factura> facturas;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "cliente")
     private List<Entrada> entradas;
 

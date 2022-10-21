@@ -2,9 +2,7 @@ package co.edu.uniquindio.unicine.entidades;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 @Getter
@@ -18,6 +16,7 @@ import java.util.Objects;
 public class Entrada implements Serializable {
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEntrada;
     private Integer cantidadEntradas;
 
