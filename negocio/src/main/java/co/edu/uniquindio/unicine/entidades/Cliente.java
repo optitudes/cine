@@ -27,7 +27,7 @@ public class Cliente implements Serializable {
     @ElementCollection
     private List<String> telefonos;
 
-    private Tarjeta tarjeta;
+
 
 
     public Cliente(String nombreCompleto, String email, String imgPerfil, String contrasenia, List<String> telefonos) {
@@ -37,6 +37,10 @@ public class Cliente implements Serializable {
         this.contrasenia = contrasenia;
         this.telefonos = telefonos;
     }
+
+    @ToString.Exclude
+    @ManyToOne
+    private Tarjeta tarjeta;
 
     @ToString.Exclude
     @ManyToOne
@@ -53,6 +57,7 @@ public class Cliente implements Serializable {
     @ToString.Exclude
     @OneToMany(mappedBy = "cliente")
     private List<Entrada> entradas;
+
 
 
 

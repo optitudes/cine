@@ -19,8 +19,6 @@ public class Factura implements Serializable {
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idFactura;
-    private Integer confiCliIdConfiCli;
-    private Integer entradasIdEntradas;
 
     @ManyToOne
     private Cliente cliente;
@@ -36,5 +34,8 @@ public class Factura implements Serializable {
 
     @OneToMany(mappedBy = "factura")
     private List<Entrada> entradas;
+
+
+
 
 }

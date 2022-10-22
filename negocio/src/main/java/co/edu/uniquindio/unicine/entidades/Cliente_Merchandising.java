@@ -17,7 +17,7 @@ public class Cliente_Merchandising implements Serializable {
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCliente_Merchandising;
+    private Integer idClienteMerchandising;
 
     @ManyToOne
     private Merchandising merchandising;

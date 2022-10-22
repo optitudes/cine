@@ -34,5 +34,13 @@ public class Pelicula implements Serializable {
     @OneToMany(mappedBy = "pelicula")
     private List<Entrada> entradas;
 
-
+    public Pelicula(String nombre, String trailer, String img, String sinopsis, String estado, String tipo, String reparto) {
+        this.nombre = nombre;
+        this.trailer = trailer;
+        this.img = img;
+        this.sinopsis = sinopsis;
+        this.estado = estado;
+        this.tipo = tipo;
+        this.reparto = reparto;
+    }
 }

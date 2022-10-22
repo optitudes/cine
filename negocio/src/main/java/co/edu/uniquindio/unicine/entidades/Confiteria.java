@@ -28,4 +28,9 @@ public class Confiteria implements Serializable {
     @OneToMany(mappedBy = "confiteria")
     private List<Confiteria_Cliente> confiteria_clientes;
 
+    public Confiteria(String nombre, Integer precio, String img) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.img = img;
+    }
 }

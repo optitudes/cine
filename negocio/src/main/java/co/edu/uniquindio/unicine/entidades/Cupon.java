@@ -33,4 +33,12 @@ public class Cupon implements Serializable {
     private Factura factura;
 
 
+    public Cupon(Double valorCupon, LocalDate fechVenci, String criterio, String estado, Cliente cliente, Factura factura) {
+        this.valorCupon = valorCupon;
+        this.fechVenci = fechVenci;
+        this.criterio = criterio;
+        this.estado = estado;
+        this.cliente = cliente;
+        this.factura = factura;
+    }
 }

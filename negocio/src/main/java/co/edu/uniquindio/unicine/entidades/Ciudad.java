@@ -25,10 +25,11 @@ public class Ciudad implements Serializable {
 
     @OneToMany(mappedBy="ciudad")
     private List<Cliente> clientes;
-
+//relacion teatro-ciudad
     @OneToMany(mappedBy = "ciudad")
     private List<Teatro> teatros;
 
-
-
+    public Ciudad(String nombre) {
+        this.nombre = nombre;
+    }
 }

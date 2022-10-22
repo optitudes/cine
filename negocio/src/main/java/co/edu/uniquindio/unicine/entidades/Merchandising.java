@@ -28,5 +28,10 @@ public class Merchandising  implements Serializable {
     @OneToMany(mappedBy = "merchandising")
     private List<Cliente_Merchandising> cliente_merchandisings;
 
+    public Merchandising(String img, Double precio, String nombre) {
+        this.img = img;
+        this.precio = precio;
+        this.nombre = nombre;
 
+    }
 }

@@ -27,5 +27,7 @@ public class Ubica_Silla implements Serializable {
     @OneToMany(mappedBy = "ubica_silla")
     private List<Entrada> entradas;
 
-
+    public Ubica_Silla(Silla silla) {
+        this.silla = silla;
+    }
 }

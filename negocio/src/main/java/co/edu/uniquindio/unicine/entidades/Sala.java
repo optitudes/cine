@@ -22,6 +22,8 @@ public class Sala implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idSala;
 
+
+    //relacion sala-teatro
     @ManyToOne
     private Teatro teatro;
 

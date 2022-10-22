@@ -27,10 +27,20 @@ public class Teatro implements Serializable {
     @ManyToOne
     private AdminTeatro adminTeatro;
 
+
+    //relacion teatro-ciudad
     @ManyToOne
     private Ciudad ciudad;
 
+
+    //relacion sala-teatro
     @OneToMany(mappedBy = "teatro")
     private List<Sala> salas;
 
+
+    public Teatro(String nombre, String direccion, Ciudad ciudad) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.ciudad = ciudad;
+    }
 }
