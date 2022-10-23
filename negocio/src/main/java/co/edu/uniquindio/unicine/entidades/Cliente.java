@@ -22,11 +22,13 @@ public class Cliente implements Serializable {
     private String  nombreCompleto;
     private String  email;
     private String  imgPerfil;
+    @ToString.Exclude
     private String  contrasenia;
+
+    private Boolean estado;
 
     @ElementCollection
     private List<String> telefonos;
-
 
 
 
@@ -35,6 +37,7 @@ public class Cliente implements Serializable {
         this.email = email;
         this.imgPerfil = imgPerfil;
         this.contrasenia = contrasenia;
+        this.estado = false;
         this.telefonos = telefonos;
     }
 

@@ -24,9 +24,9 @@ public class Teatro implements Serializable {
     private String  nombre;
     private String  direccion;
 
+    //relación admin_teatro
     @ManyToOne
     private AdminTeatro adminTeatro;
-
 
     //relacion teatro-ciudad
     @ManyToOne

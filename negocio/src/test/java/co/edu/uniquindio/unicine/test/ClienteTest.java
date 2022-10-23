@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.jdbc.Sql;
 
 import java.util.Arrays;
@@ -32,6 +34,7 @@ public class ClienteTest {
         Cliente clienteGuardado = clienteRepo.save(cliente);
         Assertions.assertEquals("Jhon", clienteGuardado.getNombreCompleto());
         System.out.println(clienteGuardado);
+
 
     }
 
@@ -75,6 +78,51 @@ public class ClienteTest {
 
         List<Cliente> lista = clienteRepo.findAll();
         lista.forEach(System.out::println);
+
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void obtenerPorCorreo(){
+
+        Cliente cliente = clienteRepo.findByEmail("luis@gmail.com");
+        Assertions.assertNotNull(cliente);
+
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void comprobobarAutenticacion(){
+
+        Cliente cliente = clienteRepo.findByEmailAndContrasenia("luis@gmail.com", "1235");
+        Assertions.assertNotNull(cliente);
+
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void paginador(){
+
+        List<Cliente> cliente = clienteRepo.findAll(PageRequest.of(0,3)).toList();
+        cliente.forEach(System.out::println);
+
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void paginadorEstado(){
+
+        List<Cliente> cliente = clienteRepo.obtenerPorEstado(true, PageRequest.of(0,3));
+        cliente.forEach(System.out::println);
+
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void ordenarRegistros(){
+
+        List<Cliente> cliente = clienteRepo.findAll( Sort.by("nombreCompleto"));
+        cliente.forEach(System.out::println);
 
     }
 

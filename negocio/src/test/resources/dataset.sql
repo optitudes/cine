@@ -1,8 +1,8 @@
-insert into Cliente (cedula, contrasenia, email, img_perfil, nombre_completo) values (1, "1234", "jhon@gmail.com", "ruta1", "Jhon");
-insert into Cliente (cedula, contrasenia, email, img_perfil, nombre_completo) values (2, "1235", "luis@gmail.com", "ruta2", "Luis");
-insert into Cliente (cedula, contrasenia, email, img_perfil, nombre_completo) values (3, "1236", "luisa@gmail.com", "ruta3", "Luisa");
-insert into Cliente (cedula, contrasenia, email, img_perfil, nombre_completo) values (4, "1237", "carlos@gmail.com", "ruta4", "Carlos");
-insert into Cliente (cedula, contrasenia, email, img_perfil, nombre_completo) values (5, "1238", "david@gmail.com", "ruta5", "David");
+insert into Cliente (cedula, contrasenia, email, img_perfil, nombre_completo, estado) values (1, "1234", "jhon@gmail.com", "ruta1", "Jhon", 1);
+insert into Cliente (cedula, contrasenia, email, img_perfil, nombre_completo, estado) values (2, "1235", "luis@gmail.com", "ruta2", "Luis", 1);
+insert into Cliente (cedula, contrasenia, email, img_perfil, nombre_completo, estado) values (3, "1236", "luisa@gmail.com", "ruta3", "Luisa", 0);
+insert into Cliente (cedula, contrasenia, email, img_perfil, nombre_completo, estado) values (4, "1237", "carlos@gmail.com", "ruta4", "Carlos", 1);
+insert into Cliente (cedula, contrasenia, email, img_perfil, nombre_completo, estado) values (5, "1238", "david@gmail.com", "ruta5", "David", 1);
 
 insert into cliente_telefonos values (1, "123456");
 insert into cliente_telefonos values (1, "598746");
