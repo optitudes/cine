@@ -9,13 +9,15 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
+@Entity
+
 public class Administrator implements Serializable {
 
     //id_adm in
