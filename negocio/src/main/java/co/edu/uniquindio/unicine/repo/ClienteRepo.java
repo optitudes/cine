@@ -1,6 +1,7 @@
 package co.edu.uniquindio.unicine.repo;
 
 
+import co.edu.uniquindio.unicine.entidades.Ciudad;
 import co.edu.uniquindio.unicine.entidades.Cliente;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,6 +18,11 @@ public interface ClienteRepo extends JpaRepository<Cliente, Integer> {
 
     Cliente findByEmail(String email);
 
+
+    @Query("select  b from Cliente b where b.telefonos =?1 and b.nombreCompleto =?2 ")
+    Ciudad obtenerCiudadCliente(String numeroCelular, String nombreCliente);
+
+
     @Query("select c from Cliente c where c.email = :email and c.contrasenia = :contrasenia")
     Cliente comprobarAutenticacion(String email, String contrasenia);
 
@@ -25,5 +31,8 @@ public interface ClienteRepo extends JpaRepository<Cliente, Integer> {
     @Query("select c from Cliente c where c.estado = :estado")
     List<Cliente> obtenerPorEstado(boolean estado, Pageable paginador);
 
-    
+
+
+
+
 }
