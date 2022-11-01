@@ -7,13 +7,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AdministradorRepo extends JpaRepository<Administrator, Integer>
 {
 
-    @Query("select c from Cliente c where c.email = :email and c.contrasenia = :contrasenia")
-    Administrator comprobarAutenticacion(String email, String contrasenia);
+    @Query("select c from Cliente c where c.email = :email and c.contrasenia = :contra")
+    Administrator comprobarAutenticacion(String email, String contra);
 
-    Administrator findByEmailAndContrasenia(String email, String contrasenia);
+    Administrator findByEmailAndContra(String email, String contra);
 
 
 }

@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+@Repository
 public interface EntradaRepo extends JpaRepository<Entrada, Integer> {
     @Query("select  c from Entrada c ,Factura b where c.idEntrada =?1 and b.idFactura=?2 ")
     Entrada obtenerEntradaCliente(int Entrada, int factura);

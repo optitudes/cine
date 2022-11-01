@@ -4,7 +4,9 @@ import co.edu.uniquindio.unicine.entidades.Ciudad;
 import co.edu.uniquindio.unicine.entidades.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CiudadRepo extends JpaRepository<Ciudad, Integer> {
 
     @Query("select  c from Ciudad c,Teatro b where c.nombre =?1 and b.nombre =?2 ")

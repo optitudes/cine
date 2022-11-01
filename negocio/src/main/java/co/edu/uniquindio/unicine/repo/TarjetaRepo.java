@@ -5,7 +5,9 @@ import co.edu.uniquindio.unicine.entidades.Silla;
 import co.edu.uniquindio.unicine.entidades.Tarjeta;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TarjetaRepo extends JpaRepository<Tarjeta, Integer> {
 
     @Query("select  c from Tarjeta c ,Cliente b where c.idTarjeta =?1 and b.cedula=?2 ")
