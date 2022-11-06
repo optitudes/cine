@@ -23,7 +23,6 @@ public class Administrator implements Serializable {
     //id_adm in
     @Id
     @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAdmin;
     private String email;
     private int contra;

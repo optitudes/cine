@@ -20,8 +20,7 @@ public class AdminTeatro implements Serializable {
 
     @Id
     @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idAdminTeatro;
+    private Integer idAdmin;
     private String  email;
     private String  contra;
 

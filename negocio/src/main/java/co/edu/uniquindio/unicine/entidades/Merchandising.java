@@ -13,8 +13,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-
-
 @Entity
 public class Merchandising  implements Serializable {
     @Id
@@ -34,4 +32,5 @@ public class Merchandising  implements Serializable {
         this.nombre = nombre;
 
     }
+
 }
