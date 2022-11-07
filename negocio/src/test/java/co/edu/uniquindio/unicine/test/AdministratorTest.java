@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.jdbc.Sql;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class AdministratorTest {
         Administrator admin = new Administrator();
 
         admin.setIdAdmin(1234);
-        admin.setContra(1234);
+        admin.setContra("1234");
         admin.setEmail("admin@admin.com");
         Administrator adminGuardado = adminRepo.save(admin);
         Assertions.assertNotNull(admin);
@@ -32,7 +33,7 @@ public class AdministratorTest {
         Administrator admin = new Administrator();
 
         admin.setIdAdmin(1234);
-        admin.setContra(1234);
+        admin.setContra("1234");
         admin.setEmail("admin@admin.com");
         Administrator adminGuardado = adminRepo.save(admin);
         adminRepo.delete(admin);
@@ -46,19 +47,19 @@ public class AdministratorTest {
         Administrator admin2 = new Administrator();
 
         admin.setIdAdmin(1234);
-        admin.setContra(1234);
+        admin.setContra("1234");
         admin.setEmail("admin@admin.com");
 
         admin2.setIdAdmin(3455);
-        admin2.setContra(3455);
+        admin2.setContra("3455");
         admin2.setEmail("dmin@admin.com");
 
         Administrator adminGuardado = adminRepo.save(admin);
         Administrator adminGuardado2 = adminRepo.save(admin2);
         Assertions.assertNotNull(adminGuardado);
-        admin.setEmail("admin@admincito.com");
-        Administrator adminActualizado = adminRepo.save(admin);
-        Administrator adminActualizadoBuscado = adminRepo.findById(1234).orElse(null);
+        adminGuardado.setEmail("admin@admincito.com");
+        Administrator adminActualizado = adminRepo.save(adminGuardado);
+        Administrator adminActualizadoBuscado = adminRepo.findByEmailAndContra(adminGuardado.getEmail(), adminGuardado.getContra());
         System.out.println("admin guardado"+adminGuardado);
         System.out.println("admin guardado2"+adminGuardado2);
         System.out.println("admin actualizado"+adminActualizado);
@@ -66,6 +67,7 @@ public class AdministratorTest {
         Assertions.assertNotNull(adminActualizadoBuscado);
     }
     @Test
+    @Sql("classpath:dataset.sql")
     public void listarAdminsTest(){
         List<Administrator> lista = adminRepo.findAll();
         System.out.println(lista);

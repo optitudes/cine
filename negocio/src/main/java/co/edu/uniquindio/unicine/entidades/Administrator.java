@@ -25,7 +25,7 @@ public class Administrator implements Serializable {
     @EqualsAndHashCode.Include
     private Integer idAdmin;
     private String email;
-    private int contra;
+    private String contra;
 
 
 }
